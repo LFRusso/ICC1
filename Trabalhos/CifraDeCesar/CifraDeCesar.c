@@ -1,3 +1,5 @@
+// OBS: Mudando um pouco a lógica na linha 33
+
 #include <stdio.h>
 #include <string.h>
 
@@ -10,7 +12,7 @@ char encrypt_letter(char letter, int key, int mode){
         {"ABCDEFGHIJKLMNOPQRSTUVWXYV"}};
 
     // Checando qual o índice da letra recebida
-    // e se ela é maiúscul ou minúscula
+    // e se ela é maiúscula ou minúscula
     for(int i=0; i<2; i++){
         for(int j=0; j<26; j++){
             if(alfabeto[i][j]==letter){
@@ -25,12 +27,10 @@ char encrypt_letter(char letter, int key, int mode){
     }
 
     // Checando condições de borda (casos que ultrapassam os limites inferior e superior do vetor) e 'shiftando' a letra
+    
     switch (mode){
         case 1:
-            if(index+key >= 26)
-                return alfabeto[letter_case][26 - index + key];
-            else
-                return alfabeto[letter_case][index+key];
+            return alfabeto[letter_case][(index+key)%26];
             break;
 
         case 2:
