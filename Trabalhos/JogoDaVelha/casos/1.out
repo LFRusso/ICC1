@@ -1,0 +1,43 @@
+1   |2   |3   |
+----+----+-----
+4   |5   |6   |
+----+----+-----
+7   |8   |9   |
+----+----+-----
+Jogo da velha!
+Escolha um número para jogar, jogador X!
+X   |2   |3   |
+----+----+-----
+4   |5   |6   |
+----+----+-----
+7   |8   |9   |
+----+----+-----
+Escolha um número para jogar, jogador O!
+X   |2   |3   |
+----+----+-----
+O   |5   |6   |
+----+----+-----
+7   |8   |9   |
+----+----+-----
+Escolha um número para jogar, jogador X!
+X   |X   |3   |
+----+----+-----
+O   |5   |6   |
+----+----+-----
+7   |8   |9   |
+----+----+-----
+Escolha um número para jogar, jogador O!
+X   |X   |3   |
+----+----+-----
+O   |O   |6   |
+----+----+-----
+7   |8   |9   |
+----+----+-----
+Escolha um número para jogar, jogador X!
+X   |X   |X   |
+----+----+-----
+O   |O   |6   |
+----+----+-----
+7   |8   |9   |
+----+----+-----
+Fim do jogo! O jogador X venceu!
