@@ -13,6 +13,7 @@ int main(){
     game_table = (char*)malloc(9*sizeof(char));
     buildGame(game_table);
     gameLoop(game_table);
+    free(game_table);
     return 0;
 }
 
