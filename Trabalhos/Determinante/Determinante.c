@@ -56,6 +56,6 @@ int main() {
     
         printf("O determinante da matriz de entrada equivale a %d e tem ordem %d\n", det, m);
     }
-    
+    free(matrix);    
     return 0;
 }
