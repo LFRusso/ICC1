@@ -13,18 +13,21 @@ struct Livro{
     int alugado;
 };
 
+// Leitura de linha do arquivo
 char* readLine(FILE *input){
     char *str = (char*) malloc(sizeof(char));
     char ch;
 
     ch = getc(input);
     while(ch != '\n' && ch != EOF){
+        // Condição feita por conta do carriage return em algumas linhas dos arquivos de entrada
         if(ch != 13){
             str = realloc(str, strlen(str)*sizeof(char)+sizeof(char)+1);
             strncat(str, &ch, 1);
         }
         ch = getc(input); 
     }
+    // Finalizando string
     strncat(str, "\0", 1);
     
     return str;
@@ -79,7 +82,8 @@ void alugaLivro(struct Livro *livros,struct Usuario *usuario, int n){
             }
         }
     }
-    
+   
+    // Caso a função ainda não tenha retornado, significa que o livro não está na biblioteca
     printf("Livro nao encontrado na biblioteca\n");
     return;
 }
@@ -110,10 +114,10 @@ void devolveLivro(struct Usuario *usuario){
             (usuario->livros)[i]->alugado = 0;
             
             printf("Livro %s foi devolvido com sucesso\n", (usuario->livros)[i]->nome );
-           
+          
+            // Removendo livro ao sobrescrever a memória dele com os próximos 
             memmove((usuario->livros)+i, (usuario->livros)+i+1, sizeof(struct Livro*)*(usuario->no_livros - i));
             usuario->no_livros--;
-
             usuario->livros = realloc(usuario->livros, sizeof(struct Livro*)*(usuario->no_livros));
             
             return;
@@ -136,12 +140,13 @@ int main(){
     struct Livro *livros;
     struct Usuario usuario;
     usuario.no_livros = 0;
-    usuario.livros = malloc(sizeof(struct Livro));
+    usuario.livros = (struct Livro**) malloc(sizeof(struct Livro));
 
     //Cadastra os n livros
     scanf("%d ", &n);
     livros = cadastrarLivros(n);
   
+
     while(rodando){
         
         opcao = readLine(stdin)[0];
