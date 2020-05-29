@@ -1,0 +1,15 @@
+filename: 7.reg
+key-name: id
+key-type: int
+field-name: name
+field-type: char[50]
+field-name: surname
+field-type: char[50]
+field-name: city
+field-type: char[50]
+field-name: state
+field-type: char[10]
+field-name: Occupation
+field-type: char[60]
+field-name: Company
+field-type: char[100]

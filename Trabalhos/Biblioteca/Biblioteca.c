@@ -60,22 +60,32 @@ void alugaLivro(struct Livro *livros,struct Usuario *usuario, int n){
     char* nome;
 
     printf("Digite o livro que voce procura:\n");
+    // Lendo nome do livro a ser alugado
     nome = readLine(stdin);
-    
+   
+    // Percorre os n livros até encontrar o buscado  
     for(int i=0; i<n; i++){
+        // Caso tenha encontrado o livro buscado na biblioteca...
         if(strcmp((livros+i)->nome, nome) == 0){
+            // Se o usuário já tiver mais de 10 livros, retorna
             if( usuario->no_livros >= 10){
                 printf("Voce ja tem 10 livros alugados\n");
                 return;
+            // Caso contrário checa se o livro já está alugado ou não
             } else {
                 if((livros+i)->alugado) {
                     printf("Livro ja alugado\n");
-                    return;
+                    return;  
+                // Livro encontrado e disponível, agora o processo do aluguel
                 } else {
+                    // Registrando na biblioteca que ele está alugado
                     (livros+i)->alugado = 1;
+                    
+                    // Adiciona o livro à lista de livros do usuário 
                     usuario->no_livros++;
                     usuario->livros = realloc(usuario->livros, sizeof(struct Livro*)*(usuario->no_livros) + sizeof(struct Livro*));
                     (usuario->livros)[usuario->no_livros - 1] = (livros+i);
+                    
                     printf("%s alugado com sucesso\n", (livros+i)->nome);
                     return;
                 }
@@ -90,10 +100,12 @@ void alugaLivro(struct Livro *livros,struct Usuario *usuario, int n){
 
 // Operação 2: mostra livros alugados
 void mostrarLivros(struct Usuario *usuario){
+    // Checando so o usuário já tem livros alugados
     if(usuario->no_livros == 0){
         printf("Voce nao tem livros alugados\n");
-        return;
     } else {
+        // Caso tenha, percorre todos os livros alugados pelo usuário em ordem do primeiro até o último
+        // A ordem dos livros é garantida pelo maneira como estes são salvos na operação 1 devolvidos na 
         printf("Voce tem %d livro(s) alugado(s)\n", usuario->no_livros);
         for(int i=0; i<usuario->no_livros; i++){
             printf("Livro nome: %s\n", (usuario->livros)[i]->nome);
@@ -107,8 +119,11 @@ void mostrarLivros(struct Usuario *usuario){
 void devolveLivro(struct Usuario *usuario){
     char* str;
     printf("Digite o livro que deseja devolver:\n");
+    
+    // Lendo nome do livro desejado
     str = readLine(stdin);
 
+    // Similar ao processo de aluguel, percorro todos o livros (dessa vez os do usuário) checando se encontro o buscado
     for (int i=0; i<usuario->no_livros; i++){
         if(strcmp((usuario->livros)[i]->nome, str) == 0){
             (usuario->livros)[i]->alugado = 0;
@@ -123,6 +138,8 @@ void devolveLivro(struct Usuario *usuario){
             return;
         }
     }
+
+    // Caso tenha chegado até aqui sem encontrar o liro, significa que o usuário não o possui
     printf("Voce nao possui esse livro\n");
     return;
 }
@@ -146,9 +163,7 @@ int main(){
     scanf("%d ", &n);
     livros = cadastrarLivros(n);
   
-
     while(rodando){
-        
         opcao = readLine(stdin)[0];
         switch(opcao){
             case '1':
@@ -156,7 +171,6 @@ int main(){
                 break;
             
             case '2':
-
                 mostrarLivros(&usuario);
                 break;
 
@@ -173,7 +187,5 @@ int main(){
 
     free(livros);
     free(usuario.livros);
-    livros = NULL;
-    usuario.livros = NULL;
     return 0;
 }

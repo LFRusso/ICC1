@@ -1,0 +1,17 @@
+filename: 5.reg
+key-name: id
+key-type: int
+field-name: username
+field-type: char[50]
+field-name: password
+field-type: char[50]
+field-name: name
+field-type: char[50]
+field-name: surname
+field-type: char[50]
+field-name: creditcard-type
+field-type: char[50]
+field-name: creditcard-number
+field-type: char[50]
+field-name: creditcard-CVV
+field-type: int

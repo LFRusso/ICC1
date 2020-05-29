@@ -1,0 +1,43 @@
+7.dat
+insert 1, "Otavio", "Fernandes", "Luziania", "GO", "Market and survey researcher", "Gamble-Skogmo"
+insert 2, "Martim", "Pinto", "Jatai", "GO", "Plating and coating machine operator", "Avant Garde Appraisal"
+insert 3, "Danilo", "Oliveira", "Serra", "ES", "Electronic technician", "Paul's Record Hut"
+insert 4, "Beatrice", "Silva", "Vila Velha", "ES", "Beauty care specialist", "Freedom Map"
+insert 5, "Tomas", "Rodrigues", "Taguatinga", "DF", "Television camera operator", "Hanover Shoe"
+insert 6, "Antônio", "Goncalves", "Passo Fundo", "RS", "Audio control engineer", "Dubrow's Cafeteria"
+insert 7, "Breno", "Dias", "Sao Paulo", "SP", "Cable splicer", "JasmineSola"
+insert 8, "Luan", "Martins", "Salvador", "BA", "Local account executive", "Polk Brothers"
+insert 9, "Felipe", "Sousa", "Sao Paulo", "SP", "Administrator", "Pro Star Garden Management"
+insert 10, "Felipe", "Sousa", "Natal", "RN", "Corporate recruiter", "Wherehouse Music"
+insert 11, "Clara", "Souza", "Teresopolis", "RJ", "Nurse aide", "Forum Cafeterias"
+insert 12, "Eduarda", "Cunha", "Rio de Janeiro", "RJ", "Server", "Life Plan Counselling"
+insert 13, "Luiza", "Silva", "Joinville", "SC", "Fine artist", "Manu Connection"
+insert 14, "Julieta", "Cunha", "Sao Jose dos Campos", "SP", "Actor", "Museum Company"
+insert 15, "Vinicius", "Cardoso", "Sao Roque", "SP", "Instructional coach", "Atlas Realty"
+insert 16, "Carolina", "Araujo", "Camaragibe", "PE", "Water conservationist", "Konsili"
+insert 17, "Bruno", "Costa", "Manaus", "AM", "Cartoonist", "Ulbrich's"
+insert 18, "Carla", "Almeida", "Sapucaia do Sul", "RS", "Tour escort", "Ruehl No. 925"
+insert 19, "Leonardo", "Santos", "Santarem", "PA", "Writer", "Herman's World of Sporting Goods"
+insert 20, "Vitor", "Santos", "Cuiaba", "MT", "Sewing machine operator", "Castle Realty"
+insert 21, "Beatriz", "Cavalcanti", "Limeira", "SP", "Surgeon", "Fradkin Brothers Furniture"
+insert 22, "Davi", "Dias", "Osasco", "SP", "Hydrographic surveyor", "Circuit Design"
+insert 23, "Tomas", "Gomes", "Brasilia", "DF", "Management information systems director", "Seamans Furniture"
+insert 24, "Lara", "Melo", "Recife", "PE", "Rehabilitation nurse", "Wilson's Jewelers"
+insert 25, "Lavinia", "Rodrigues", "Campinas", "SP", "Utility meter reader", "Adaptas"
+insert 26, "Joao", "Rodrigues", "Sao Paulo", "SP", "Managing editor", "Maxiserve "
+insert 27, "Jose", "Gomes", "Sao Bernardo do Campo", "SP", "Weigher", "10, 000 Auto Parts"
+insert 28, "Erick", "Ribeiro", "Curitiba", "PR", "Timekeeper", "Back To Basics Chiropractic Clinic"
+insert 29, "Murilo", "Correia", "Sao Paulo", "SP", "Agricultural product sorter", "Bumper to Bumper Auto Parts"
+insert 30, "Luis", "Souza", "Ourinhos", "SP", "Instructional coordinator", "Pay'N Takeit"
+insert 31, "Diego", "Barbosa", "Sao Bernardo do Campo", "SP", "Commercial lender", "E.J. Korvette"
+insert 32, "Estevan", "Oliveira", "Maraba", "PA", "Prepress technician", "National Tea"
+insert 33, "Tania", "Azevedo", "Resende", "RJ", "Convention planner", "Budget Power"
+insert 34, "Luiz", "Souza", "Cabo de Santo Agostinho", "PE", "Greenhouse manager", "Honest Air Group"
+search 22
+search 1
+search 5
+search 23
+search 11
+search 2
+index
+exit

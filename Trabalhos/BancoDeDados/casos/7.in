@@ -1,0 +1,63 @@
+6.dat
+insert 1, "M", "Rafael", "Lima", 20, "RafaelCunhaLima@rhyta.com", "(31) 5705-7778", 93.0, 184
+insert 2, "M", "Tiago", "Souza", 34, "TiagoGoncalvesSouza@fleckens.hu", "(11) 2340-2771", 99.8, 173
+insert 3, "F", "Gabrielle", "Pinto", 21, "GabrielleCostaPinto@teleworm.us", "(32) 8783-9815", 61.9, 157
+insert 4, "F", "Carolina", "Oliveira", 56, "CarolinaGomesOliveira@rhyta.com", "(15) 8659-6095", 67.2, 168
+insert 5, "M", "Pedro", "Carvalho", 30, "PedroOliveiraCarvalho@gustr.com", "(65) 2625-4396", 98.2, 176
+insert 6, "M", "Lucas", "Cavalcanti", 28, "LucasDiasCavalcanti@einrot.com", "(85) 5415-5122", 109.3, 180
+insert 7, "M", "Igor", "Gomes", 44, "IgorPereiraGomes@cuvox.de", "(81) 8057-5885", 106.8, 179
+insert 8, "F", "Livia", "Araujo", 57, "LiviaSantosAraujo@armyspy.com", "(11) 6304-8840", 71.2, 159
+insert 9, "M", "Samuel", "Castro", 30, "SamuelCavalcantiCastro@armyspy.com", "(67) 5718-6785", 69.4, 185
+insert 10, "F", "Lavinia", "Oliveira", 50, "LaviniaAraujoOliveira@jourrapide.com", "(85) 6864-6802", 52.6, 159
+insert 11, "M", "Rafael", "Cardoso", 53, "RafaelCastroCardoso@gustr.com", "(71) 4437-5062", 86.7, 180
+insert 12, "F", "Isabelle", "Cardoso", 23, "IsabelleGomesCardoso@jourrapide.com", "(51) 2937-4664", 46.6, 168
+insert 13, "F", "Beatriz", "Correia", 57, "BeatrizCostaCorreia@armyspy.com", "(27) 9575-5310", 74.8, 159
+insert 14, "F", "Agatha", "Costa", 23, "AgathaBarrosCosta@jourrapide.com", "(11) 2315-4470", 61.6, 169
+insert 15, "F", "Beatrice", "Rocha", 25, "BeatriceSousaRocha@fleckens.hu", "(43) 4610-2718", 72.3, 174
+insert 16, "M", "Murilo", "Barros", 44, "MuriloRodriguesBarros@superrito.com", "(47) 9075-5051", 72.4, 173
+insert 17, "F", "Emily", "Correia", 47, "EmilyCavalcantiCorreia@cuvox.de", "(11) 3783-7394", 53.9, 167
+insert 18, "M", "Gabriel", "Costa", 49, "GabrielSilvaCosta@fleckens.hu", "(85) 9226-8819", 103.9, 170
+insert 19, "M", "Vinicius", "Goncalves", 32, "ViniciusCavalcantiGoncalves@rhyta.com", "(11) 2462-9124", 70.1, 171
+insert 20, "M", "Davi", "Costa", 19, "DaviCardosoCosta@teleworm.us", "(11) 5996-9343", 89.7, 167
+insert 21, "F", "Luiza", "Sousa", 37, "LuizaBarrosSousa@superrito.com", "(16) 8474-9507", 57.5, 171
+insert 22, "F", "Vitoria", "Cunha", 21, "VitoriaBarrosCunha@superrito.com", "(79) 2891-7143", 84.7, 163
+insert 23, "F", "Yasmin", "Cavalcanti", 55, "YasminLimaCavalcanti@jourrapide.com", "(84) 5689-2557", 87.4, 158
+insert 24, "M", "Arthur", "Barros", 26, "ArthurOliveiraBarros@dayrep.com", "(51) 9553-2618", 69.1, 183
+insert 25, "F", "Carla", "Martins", 30, "CarlaAlmeidaMartins@cuvox.de", "(11) 6896-6675", 52.1, 163
+insert 26, "F", "Marisa", "Martins", 31, "MarisaDiasMartins@gustr.com", "(42) 9480-3888", 97.6, 169
+insert 27, "F", "Julia", "Araujo", 38, "JuliaCunhaAraujo@rhyta.com", "(21) 2513-2897", 93.0, 167
+insert 28, "M", "Alex", "Silva", 57, "AlexCarvalhoSilva@gustr.com", "(71) 4574-3837", 89.9, 185
+insert 29, "M", "Carlos", "Rocha", 60, "CarlosDiasRocha@armyspy.com", "(41) 5346-7659", 73.6, 176
+insert 30, "F", "Marina", "Souza", 51, "MarinaSousaSouza@dayrep.com", "(53) 9037-9417", 82.5, 168
+insert 31, "F", "Leonor", "Almeida", 51, "LeonorLimaAlmeida@armyspy.com", "(77) 9709-7614", 101.4, 170
+insert 32, "F", "Sophia", "Cunha", 55, "SophiaSouzaCunha@jourrapide.com", "(51) 6928-7510", 92.1, 172
+insert 33, "M", "Danilo", "Ferreira", 21, "DaniloRochaFerreira@rhyta.com", "(11) 6319-2996", 92.2, 182
+insert 34, "F", "Julia", "Ferreira", 20, "JuliaRibeiroFerreira@cuvox.de", "(85) 8204-3485", 80.6, 173
+insert 35, "M", "Julian", "Rodrigues", 45, "JulianCavalcantiRodrigues@dayrep.com", "(67) 4983-2302", 81.7, 182
+insert 36, "F", "Amanda", "Melo", 41, "AmandaSousaMelo@superrito.com", "(11) 5221-5147", 72.6, 155
+insert 37, "F", "Sophia", "Ribeiro", 51, "SophiaCorreiaRibeiro@rhyta.com", "(11) 2591-3238", 53.5, 174
+insert 38, "F", "Luiza", "Lima", 22, "LuizaSilvaLima@gustr.com", "(73) 5283-6865", 95.7, 166
+insert 39, "F", "Julia", "Ribeiro", 56, "JuliaSousaRibeiro@dayrep.com", "(81) 6753-5596", 86.6, 156
+insert 40, "M", "Carlos", "Pinto", 46, "CarlosLimaPinto@einrot.com", "(48) 4608-2587", 99.1, 185
+insert 41, "M", "Martim", "Ferreira", 24, "MartimCarvalhoFerreira@teleworm.us", "(81) 6160-3490", 80.3, 179
+insert 42, "M", "Gabriel", "Cunha", 58, "GabrielCostaCunha@armyspy.com", "(11) 4312-9649", 67.5, 184
+insert 43, "F", "Rafaela", "Carvalho", 26, "RafaelaGomesCarvalho@einrot.com", "(43) 4342-7322", 73.2, 174
+insert 44, "F", "Gabriela", "Cardoso", 59, "GabrielaOliveiraCardoso@cuvox.de", "(24) 4249-9085", 63.4, 167
+insert 45, "M", "Luis", "Fernandes", 46, "LuisBarrosFernandes@armyspy.com", "(49) 2725-6772", 74.0, 167
+insert 46, "M", "Paulo", "Ferreira", 39, "PauloLimaFerreira@jourrapide.com", "(27) 2144-6729", 100.3, 188
+insert 47, "F", "Brenda", "Cavalcanti", 25, "BrendaCardosoCavalcanti@rhyta.com", "(19) 5399-7589", 77.4, 169
+insert 48, "M", "Murilo", "Dias", 59, "MuriloSantosDias@fleckens.hu", "(85) 2988-5988", 85.7, 179
+insert 49, "F", "Vitoria", "Martins", 27, "VitoriaCostaMartins@jourrapide.com", "(14) 7650-7256", 64.0, 163
+insert 50, "F", "Lara", "Cunha", 30, "LaraFerreiraCunha@superrito.com", "(15) 8749-4766", 52.2, 159
+insert 51, "M", "Rodrigo", "Oliveira", 26, "RodrigoMartinsOliveira@fleckens.hu", "(14) 4737-3402", 98.3, 173
+insert 52, "F", "Gabriela", "Lima", 59, "GabrielaDiasLima@einrot.com", "(34) 4284-8695", 86.9, 157
+insert 53, "M", "Felipe", "Cavalcanti", 47, "FelipeGoncalvesCavalcanti@jourrapide.com", "(18) 5575-8311", 96.8, 178
+insert 54, "F", "Lara", "Pinto", 56, "LaraMeloPinto@jourrapide.com", "(43) 8878-4636", 78.1, 172
+search 2
+search 13
+search 22
+search 5
+search 54
+search 37
+index
+exit

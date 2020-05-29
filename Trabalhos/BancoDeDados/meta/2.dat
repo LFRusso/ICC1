@@ -1,0 +1,11 @@
+filename: registros.reg
+key-name: codigo
+key-type: int
+field-name: abrev
+field-type: char[10]
+field-name: lat
+field-type: char[20]
+field-name: long
+field-type: char[20]
+field-name: pais
+field-type: char[80]

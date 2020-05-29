@@ -1,0 +1,9 @@
+filename: registros.reg
+key-name: codigo
+key-type: int
+field-name: nome
+field-type: char[80]
+field-name: idade
+field-type: int
+field-name: bolsa
+field-type: double
