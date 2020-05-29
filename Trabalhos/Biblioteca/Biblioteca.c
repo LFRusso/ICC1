@@ -185,6 +185,9 @@ int main(){
         }
     }   
 
+    for(int i=0; i<n; i++){
+        free(livros[i].nome);
+    }
     free(livros);
     free(usuario.livros);
     return 0;
