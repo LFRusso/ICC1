@@ -112,6 +112,9 @@ struct palette* getPalette(FILE* img){
 // Lendo área de dados da imagem
 unsigned char** getImgMatrix(FILE* file, int width, int height){
     unsigned char** img_matrix = calloc(height, sizeof(char*));
+    // Atualizando largura a ser lida levando em conta o lixo
+    width = width % 4 ? width + 4 -  width % 4 : width;
+
     for(int i=height-1; i>=0; i--){
         img_matrix[i] = calloc(width, sizeof(char));
         for(int j=0; j<width; j++){
@@ -153,7 +156,10 @@ struct palette* applyFilter(struct palette* palette_old, int mode){
 // Salvando a imagem em um arquivo
 void saveImg(char* img_name, struct file_header file_header, struct bitmap_header bitmap_header, struct palette* palette, unsigned char** img_matrix){
     FILE* file = fopen(img_name, "w+");
-   
+    int width, height;
+    height = bitmap_header.img_height;
+    width = bitmap_header.img_width % 4 ? bitmap_header.img_width + 4 - bitmap_header.img_width % 4 : bitmap_header.img_width;
+
     // Salvando cabeçalho do arquivo
     fwrite(file_header.signature, sizeof(char), 2, file);
     fwrite(&file_header.file_size, sizeof(int), 1, file);
@@ -183,8 +189,8 @@ void saveImg(char* img_name, struct file_header file_header, struct bitmap_heade
     }
     
     // Salvando matriz das cores
-    for(int i=bitmap_header.img_height-1; i>=0; i--){
-        for(int j=0; j<bitmap_header.img_width; j++){
+    for(int i=height-1; i>=0; i--){
+        for(int j=0; j<width; j++){
             fwrite(&img_matrix[i][j], sizeof(char), 1, file);
         }
     }
@@ -279,12 +285,14 @@ int main(){
         printf("Paleta[%d]: R:%d G:%d B:%d\n", i, palette_new[i].R, palette_new[i].G, palette_new[i].B);
     } 
     
-    for(long long int sum, i=0; i<bitmap_header.img_height; i++){
+    long long int sum;
+    for(int i=0; i<bitmap_header.img_height; i++){
         sum = 0;
         for(int j=0; j<bitmap_header.img_width; j++){
-            sum = img_matrix[i][j] == '$' ? sum - 1 : sum + img_matrix[i][j];
+            sum += img_matrix[i][j];
         }
-        printf("Soma linha %lld: %lld\n", i, sum);
+        sum = bitmap_header.img_width % 4 ? sum - (4 - bitmap_header.img_width % 4) : sum;
+        printf("Soma linha %d: %lld\n", i, sum);
     }  
 
     // Salvando imagem com o filtro
