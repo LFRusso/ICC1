@@ -5,31 +5,31 @@
 #include <locale.h>
 
 struct file_header{
-    char* signature;        // (2 bytes)                                   
-    int file_size;          // (4 bytes) Size of the file in bytes
-    int reserved;           // (4 bytes) must be 0
-    int displacement;       // (4 bytes) must be 14+40+4*(4*NumberofColors) = 1078  (number of colors is 256)
+    char* signature;        // (2 bytes) Assinatura do arquivo
+    int file_size;          // (4 bytes) Tamanho do arquivo em bytes
+    int reserved;           // (4 bytes) Campo reservado
+    int displacement;       // (4 bytes) Deslocamento, em bytes, para o início da área de dados da imagem 
 };
 
 struct bitmap_header{
-    int size;               // (4 bytes)
-    int img_width;          // (4 bytes)
-    int img_height;         // (4 bytes)
-    short planes;           // (2 bytes) must be 1
-    short bit_per_pixel;    // (2 bytes) will be 8 in our case
-    int compression;        // (4 bytes) no compression = 0
-    int img_size;           // (4 bytes) equal to file_size
-    int pixel_meter_h;      // (4 bytes)
-    int pixel_meter_v;      // (4 bytes)
-    int n_colors;           // (4 bytes)
-    int n_used_colors;      // (4 bytes)
+    int size;               // (4 bytes) Tamanho deste cabeçalho
+    int img_width;          // (4 bytes) Largura da imagem em pixels
+    int img_height;         // (4 bytes) Altura da imagem em pixels
+    short planes;           // (2 bytes) Número de planos da imagem (1)
+    short bit_per_pixel;    // (2 bytes) Bits por pixel
+    int compression;        // (4 bytes) Compressão usada (0 = nenhuma compressão)
+    int img_size;           // (4 bytes) Tamanho dos dados da imagem
+    int pixel_meter_h;      // (4 bytes) Resolução em pixel por metro na horizontal
+    int pixel_meter_v;      // (4 bytes) Resolução em pixel por metro na vertical
+    int n_colors;           // (4 bytes) Número de cores usadas na image
+    int n_used_colors;      // (4 bytes) Número de cores efetivamente usadas na imagem
 };
 
 struct palette{
-    unsigned char R;
-    unsigned char G;
-    unsigned char B;
-    unsigned char reserved;
+    unsigned char R;        // Intensidade de vermelho
+    unsigned char G;        // Intensidade de verde
+    unsigned char B;        // Intensidade de azul
+    unsigned char reserved; // Campo reservado
 };
 
 // Recebe uma string e um padrão e checa ocorrência
@@ -65,7 +65,7 @@ char *readline(FILE *input){
     return str;
 }
 
-// Lendo cabeçalho do arquivo
+// Função para ler cabeçalho do arquivo cabeçalho do arquivo
 struct file_header getFileHeader(FILE* file){
     struct file_header file_header;
     file_header.signature = calloc(3, sizeof(char));
@@ -77,7 +77,7 @@ struct file_header getFileHeader(FILE* file){
     return file_header;
 }
 
-// Lendo cabeçalho do bitmap
+// Função para ler o cabeçalho do mapa de bits
 struct bitmap_header getBitmapHeader(FILE* file){
     struct bitmap_header bitmap_header;
     fread(&bitmap_header.size, sizeof(int), 1, file);
@@ -95,7 +95,7 @@ struct bitmap_header getBitmapHeader(FILE* file){
     return bitmap_header;
 }
 
-// Lendo paleta de cores
+// Função para ler paleta de cores
 struct palette* getPalette(FILE* img){
     struct palette* palette = calloc(256, sizeof(struct palette));
     for(int i=0; i<256; i++){
@@ -109,10 +109,10 @@ struct palette* getPalette(FILE* img){
 }
 
 
-// Lendo área de dados da imagem
+// Função para ler área de dados da imagem
 unsigned char** getImgMatrix(FILE* file, int width, int height){
     unsigned char** img_matrix = calloc(height, sizeof(char*));
-    // Atualizando largura a ser lida levando em conta o lixo
+    // Atualizando largura a ser lida levando em conta o lixo (caso não seja múltiplo de 4)
     width = width % 4 ? width + 4 -  width % 4 : width;
 
     for(int i=height-1; i>=0; i--){
@@ -125,7 +125,7 @@ unsigned char** getImgMatrix(FILE* file, int width, int height){
     return img_matrix;
 }
 
-// Aplica o filtro desejado na paleta de cores da imagem
+// Função para aplicar o filtro desejado na paleta de cores da imagem
 struct palette* applyFilter(struct palette* palette_old, int mode){
     struct palette* palette_new = calloc(256, sizeof(struct palette));
     
@@ -153,11 +153,12 @@ struct palette* applyFilter(struct palette* palette_old, int mode){
     return palette_new;
 }
 
-// Salvando a imagem em um arquivo
+// Recebe dados de uma imagem e salva como um arquivo com o nome especificado
 void saveImg(char* img_name, struct file_header file_header, struct bitmap_header bitmap_header, struct palette* palette, unsigned char** img_matrix){
     FILE* file = fopen(img_name, "w+");
     int width, height;
     height = bitmap_header.img_height;
+    // Atualizando largura a ser lida levando em conta o lixo (caso não seja múltiplo de 4)
     width = bitmap_header.img_width % 4 ? bitmap_header.img_width + 4 - bitmap_header.img_width % 4 : bitmap_header.img_width;
 
     // Salvando cabeçalho do arquivo
@@ -165,7 +166,6 @@ void saveImg(char* img_name, struct file_header file_header, struct bitmap_heade
     fwrite(&file_header.file_size, sizeof(int), 1, file);
     fwrite(&file_header.reserved, sizeof(int), 1, file);
     fwrite(&file_header.displacement, sizeof(int), 1, file);
-
 
     // Salvando cabeçalho do mapa de bits
     fwrite(&bitmap_header.size, sizeof(int), 1, file);
@@ -239,6 +239,7 @@ int main(){
     palette_new = applyFilter(palette_old, mode);
 
     
+    // Gerando novo nome para o arquivo a ser salvo
     switch(mode){
         case 1:
             img_name = realloc(img_name, strlen(img_name) + strlen("Negativo") + sizeof(char));
@@ -253,7 +254,6 @@ int main(){
             break;
     }
     
-
     // Imprimindo cabeçalho do arquivo
     printf("CABECALHO:\n");
     printf("Iniciais: %s\n", file_header.signature);
@@ -285,12 +285,14 @@ int main(){
         printf("Paleta[%d]: R:%d G:%d B:%d\n", i, palette_new[i].R, palette_new[i].G, palette_new[i].B);
     } 
     
+    // Obtendo e imprimindo soma dos números em cada linha da matriz da imagem 
     long long int sum;
     for(int i=0; i<bitmap_header.img_height; i++){
         sum = 0;
         for(int j=0; j<bitmap_header.img_width; j++){
             sum += img_matrix[i][j];
         }
+        // Atualizando soma levando em conta especificações para o caso em que a largura não é múltipla de 4 (-1 para cada lixo)
         sum = bitmap_header.img_width % 4 ? sum - (4 - bitmap_header.img_width % 4) : sum;
         printf("Soma linha %d: %lld\n", i, sum);
     }  
