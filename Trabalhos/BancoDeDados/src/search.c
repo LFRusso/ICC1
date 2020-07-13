@@ -5,8 +5,6 @@
 *
 */
 int getOffset(int query, insertion_info* inserts, int no_inserts){
-    int offset;
-    
     for(int i=0; i<no_inserts; i++){
         if(inserts[i].index == query){
             return inserts[i].position;

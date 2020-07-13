@@ -3,17 +3,12 @@ SRC_FILES := $(wildcard $(SRC_DIR)/*.c)
 MAIN := main.c
 CFLAGS := -Wall -Wextra -Wpedantic
 TARGET := sgbd
-OBJFILES := $(wildcard *.o)
 
-
-all: objects
-	gcc $(MAIN) $(OBJFILES) -o $(TARGET) $(CFLAGS)
-
-objects:
-	gcc $(SRC_FILES) -c
+all: $(OBJFILES)
+	gcc $(MAIN) $(SRC_FILES) -o $(TARGET) $(CFLAGS)
 
 clean:
-	rm -r $(OBJFILES) $(TARGET)
+	rm -r $(TARGET)
 
 debug:
 	valgrind --leak-check=full --track-origins=yes ./$(TARGET)
