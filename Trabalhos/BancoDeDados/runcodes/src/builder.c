@@ -1,5 +1,4 @@
 // Lê e salva as informações do BD de acordo com os metadados
-
 #include "builder.h"
 
 /*
@@ -86,8 +85,6 @@ register_field* builder(FILE* metafile, int* no_fields, char** regfile_name){
     char* temp;
     FILE* regfile;
     register_field* fields = calloc(1, sizeof(register_field));
-    
-
     *no_fields = 0;
     
     line = readline(metafile);
@@ -115,7 +112,6 @@ register_field* builder(FILE* metafile, int* no_fields, char** regfile_name){
         line = readline(metafile);
     }
 
-    
     fclose(regfile);
     free(line);
     return fields;

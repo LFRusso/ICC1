@@ -1,6 +1,6 @@
+// Função readline para obter entradas
 #include "readline.h"
 
-// Função readline para obter entradas
 char *readline(FILE *input){
     char *str = calloc(1, sizeof(char));
     char ch;

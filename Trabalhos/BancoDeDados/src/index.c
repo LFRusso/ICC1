@@ -1,7 +1,7 @@
 #include "index.h"
 
 /*
-*
+*   Obtém nome do arquivo .idx baseado no arquivo de registros
 */
 char* getFilename(char* regfile_name){
     char* index_name;
@@ -17,7 +17,8 @@ char* getFilename(char* regfile_name){
 }
 
 /*
-*
+*   Lê o arquivo .idx já e carrega as informações préviamente existentes
+*       nele para a memória, atualizando o array dos inserts
 */
 void idxread(char* filename, insertion_info** inserts, int* no_inserts){
     int key, position;
@@ -34,6 +35,10 @@ void idxread(char* filename, insertion_info** inserts, int* no_inserts){
     return;
 }
 
+/*
+*   Salva todas as informações dos inserts que estão na memória
+*       no arquivo .idx
+*/
 void idxwrite(char* filename, insertion_info* inserts, int no_inserts){
     FILE* file = fopen(filename, "w+");
     
@@ -46,6 +51,9 @@ void idxwrite(char* filename, insertion_info* inserts, int no_inserts){
     return;
 }
 
+/*
+*   Função de comparação para o qsort
+*/
 int compare(const void *a, const void *b){
     insertion_info* insertionA = (insertion_info*)a;
     insertion_info* insertionB = (insertion_info*)b;
@@ -54,7 +62,8 @@ int compare(const void *a, const void *b){
 }
 
 /*
-*
+*   Função principal: recebe o nome do arquivo de registros e as informações referentes às
+*       inserções que ainda não foram salvas e portanto estão na memória 
 */
 insertion_info* idx(char* regfile_name, insertion_info* inserts, int* no_inserts){
     char* filename;
@@ -67,7 +76,7 @@ insertion_info* idx(char* regfile_name, insertion_info* inserts, int* no_inserts
         idxread(filename, &inserts, &(*no_inserts));
     }
 
-    // Ordenando e escrevendo dados para o .idx
+    // Ordenando e salvando informações das inserções no .idx
     qsort(inserts, *no_inserts, sizeof(insertion_info), compare);
     idxwrite(filename, inserts, *no_inserts);
 

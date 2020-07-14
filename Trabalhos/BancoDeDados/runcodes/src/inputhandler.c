@@ -24,7 +24,7 @@ int getAction(char* str){
 }
 
 /*
-*   Obtém conteúdo do insert do usuário
+*   Obtém conteúdo da ação do usuário
 */
 char* getContent(char* str){
     char* temp;
@@ -55,48 +55,36 @@ void handleInput(char* regfile_name, register_field* fields, int no_fields){
         switch(getAction(line)){
             case 1:
                 // insert
-
-                //  Aqui vai a função de inserção dos dados \o/
                 content = getContent(line);
                 inserts[no_inserts] = insert(regfile_name, content, fields, no_fields);
-                
                 no_inserts++;
                 inserts = realloc(inserts, sizeof(insertion_info) * no_inserts + sizeof(insertion_info));
-                //
-
                 free(content);
                 break;
             
             case 2:
                 // index 
                 inserts = idx(regfile_name, inserts, &no_inserts);
-                //
-                //  Aqui vai a função para gerar o index
-                //
-                
                 break;
 
             case 3:
                 // search
+                // Atualizando/criando index para ser lido
                 inserts = idx(regfile_name, inserts, &no_inserts);
                 content = getContent(line);
+                // Buscando por chave passada pelo usuário como conteúdo do search
                 search(content, regfile_name, fields, no_fields);
                 free(content);
-                //
-                //  Aqui vai a fução de busca de index
-                
                 break;
 
             case 4:
                 // exit
-                
                 free(line);
                 free(inserts);
                 return;
                 break;
 
             default:
-                printf("Ação inválida\n");
                 break;
         }
         

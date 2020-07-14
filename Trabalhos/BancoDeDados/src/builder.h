@@ -17,12 +17,14 @@ typedef enum {
     DOUBLE
 } dtype;
 
+// struct referente à um campo do registro
 typedef struct register_field {
     char* name;
     dtype type; 
     int size;
 } register_field;
 
+// struct referente à informação de uma inserção
 typedef struct insertion_info {
     int index;
     int position;
@@ -30,8 +32,6 @@ typedef struct insertion_info {
 
 
 register_field* builder(FILE* metafile, int* no_field, char** regfile_name);
-
-void parseLine(char* line, register_field* fields, int* no_fields);
 
 int checkPattern(char* str, char* pattern);
 

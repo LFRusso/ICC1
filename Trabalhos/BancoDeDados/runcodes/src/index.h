@@ -1,4 +1,4 @@
-// Cria o arquivo index
+// Cria/atualiza o arquivo index
 #ifndef _INDEX_H_
 #define _INDEX_H_
 
